@@ -1,8 +1,13 @@
 (function () {
   'use strict';
 
-  
-  alert('Привет!');
+
+  let Menu = window.Menu; //import
+
+  new Menu ({
+    elem: document.querySelector('.menu')
+  });
+
 })();
 
 
