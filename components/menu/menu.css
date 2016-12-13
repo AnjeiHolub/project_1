@@ -1,4 +1,13 @@
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Proxima Nova Regular.otf") format("otf");
+}
+
 .menu {
+  -webkit-font-smoothing: antialiased;
+  font-family: "Proxima Nova", sans-serif;
   height: 100%;
   width: 500px;
   background-color: #fff;
@@ -20,7 +29,6 @@
   border: 1px solid #dedede;
   padding: 10px;
   border-radius: 5px;
-  
 }
 
 
@@ -29,8 +37,6 @@
   width: 20px;
   display: block;
   float: right;
-  background-image: url(../menu/img/close.png);
-  background-size: cover;
   cursor: pointer;
 }
 
