@@ -3,8 +3,9 @@
 
 
   let Menu = window.Menu; //import
+  let Form = window.Form; //import
 
-  new Menu ({
+  let menu = new Menu ({
     elem: document.querySelector('.menu'),
     data: {
       title: 'Single page application',
@@ -20,6 +21,16 @@
       }]
     }
   });
+
+  let form = new Form ({
+    elem: document.querySelector('.form'),
+    submit (item) {
+      menu.onAddList(item);
+    }
+  })
+
+  window.menu = menu;
+  window.form = form;
 
 })();
 

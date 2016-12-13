@@ -5,7 +5,7 @@
     constructor ({elem, data}) {
       this._elem = elem;
       this._data = data;
-      console.log(this._data);
+      this.onAddList = this.onAddList.bind(this);
       this._onClick = this._onClick.bind(this);
       this.render();
       this._eventInit();
@@ -44,6 +44,11 @@
         default: 
           break;
       }
+    }
+
+    onAddList (item) {
+      this._data.items.push(item);
+      this.render();
     }
 
     _onCloseClick (event) {
