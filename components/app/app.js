@@ -9,23 +9,25 @@
     elem: document.querySelector('.menu'),
     data: {
       title: 'Single page application',
-      items: [{
-        href: 'gamil.com',
-        anchor: 'Почта',
-        details: 'Почта Gmail'
-      },
-      {
-        href: 'google.com',
-        anchor: 'Поисковик',
-        details: 'Поисковик Google'
-      }]
+      items: [
+        {
+          href: 'gamil.com',
+          anchor: 'Почта',
+          details: 'Почта Gmail'
+        },
+        {
+          href: 'google.com',
+          anchor: 'Поисковик',
+          details: 'Поисковик Google'
+        }
+      ]
     }
   });
 
   let form = new Form ({
     elem: document.querySelector('.form'),
     submit (item) {
-      menu.onAddList(item);
+      menu.addList(item);
     }
   })
 

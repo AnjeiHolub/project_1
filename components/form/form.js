@@ -11,29 +11,30 @@
     }
     
     render () {
-      this._elem.innerHTML = `
-      <input class="form__href" type="text">
-      <input class="form__anchor" type="text">
-      <textarea class="form__details" cols="30" rows="10"></textarea>
-      <button class="form__button" type="submit">Добавить</button>
-      `;
+      this._elem.innerHTML = `<h1 class="form__title">Добавить позицию</h1>
+                              <input name="url" class="form__input" placeholder="url" type="text">
+                              <input name="anchor" class="form__input" placeholder="anchor" type="text">
+                              <textarea name="details" class="form__input" placeholder="details" rows="5"></textarea>
+                              <button class="form__button" type="submit">Добавить</button>`;
     }
 
     _eventInit () {
       this._elem.addEventListener('submit', this._onSubmit);
     }
 
-    _getValueForm (selector) {
-      return this._elem.querySelector(selector).value;
+    _getValueForm (name) {
+      return this._elem.querySelector(`[name=${name}`).value;
     }
 
     _onSubmit (event) {
       event.preventDefault();
       let item = {};
-      item.href = this._getValueForm('.form__href');
-      item.anchor = this._getValueForm('.form__anchor');
-      item.details = this._getValueForm('.form__details');
+      item.href = this._getValueForm('url');
+      item.anchor = this._getValueForm('anchor');
+      item.details = this._getValueForm('details');
+      this._elem.reset();
       this._submit(item);
+
     }
 
   }
