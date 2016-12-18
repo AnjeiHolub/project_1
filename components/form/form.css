@@ -17,7 +17,21 @@ input {
 	float: left;
 	box-sizing: border-box;
 	border: 1px solid #dedede;
+	outline: none;
+	box-shadow: 0px 0px 3px #ccc, 0 2px 5px #eee inset;
 }
+
+input:focus:invalid, textarea:focus:invalid {
+	box-shadow: inset 0 0 0.5px 0.5px #d45252, 0px 0px 3px #ccc;
+	border-color: #b03535;
+}
+
+input:required:valid, textarea:required:valid {
+	box-shadow:  inset 0 0 0.5px 0.5px #41a45d, 0px 0px 3px #ccc;
+	border-color: #41a45d;
+}
+
+
 
 [name="url"] {
 	float: left;
@@ -33,6 +47,8 @@ textarea {
 	max-width: 100%;
 	box-sizing: border-box;
 	border: 1px solid #dedede;
+	outline: none;
+	box-shadow: 0px 0px 3px #ccc, 0 2px 5px #eee inset;
 }
 
 .form__button {
