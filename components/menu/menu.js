@@ -1,18 +1,29 @@
 (function () {
   'use strict';
 
+  //import
+
+  let menuTmpl = window.menuTmpl;
+
   class Menu {
+    /**
+     * Create a Menu.
+     * @param {Object} elem
+     * @param {Array} data
+     */
     constructor ({elem, data}) {
       this._elem = elem;
       this._data = data;
+      this.menuTmpl = menuTmpl;
       this.addList = this.addList.bind(this);
       this._onClick = this._onClick.bind(this);
-      this.render();
+      this._render();
       this._eventInit();
     }
     
-    render () {
-      function renderMenuList (data) {
+    _render () {
+      this._elem.innerHTML = this.menuTmpl(this._data);
+      /*function renderMenuList (data) {
         return data.items.map((item, index) => {
           return `<li class="menu__item" data-index="${index}">
                     <a href="${item.href}" data-action="pick">${item.anchor}</a>
@@ -22,7 +33,7 @@
         }).join('');
       };
       this._elem.innerHTML = `<h1 class="menu__title">${this._data.title}</h1>
-                              ${renderMenuList(this._data)}`;
+                              ${renderMenuList(this._data)}`;*/
     }
 
     _eventInit () {
@@ -42,14 +53,14 @@
 
     addList (item) {
       this._data.items.push(item);
-      this.render();
+      this._render();
     }
 
     removeList (target) {
       this._data.items = this._data.items.filter((item, index) => {
         return target.dataset.index != index;
       });
-      this.render();
+      this._render();
     }
 
 

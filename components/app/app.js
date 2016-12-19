@@ -29,7 +29,7 @@
     submit (item) {
       menu.addList(item);
     }
-  })
+  });
 
   window.menu = menu;
   window.form = form;

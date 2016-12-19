@@ -1,21 +1,27 @@
 (function () {
   'use strict';
 
+  //import
+
+  let formTmpl = window.formTmpl;
+
   class Form {
     constructor ({elem, submit}) {
       this._elem = elem;
       this._submit = submit;
+      this._formTmpl = formTmpl;
       this._onSubmit = this._onSubmit.bind(this);
       this.render();
       this._eventInit();
     }
     
     render () {
-      this._elem.innerHTML = `<h1 class="form__title">Добавить позицию</h1>
-                              <input name="url" class="form__input" placeholder="url" type="text">
-                              <input name="anchor" class="form__input" placeholder="anchor" type="text">
-                              <textarea name="details" class="form__input" placeholder="details" rows="5"></textarea>
-                              <button class="form__button" type="submit">Добавить</button>`;
+      this._elem.innerHTML = this._formTmpl();
+      /*this._elem.innerHTML = `<h1 class="form__title">Добавить позицию</h1>
+                              <input name="url" class="form__input" placeholder="url" type="text" required>
+                              <input name="anchor" class="form__input" placeholder="anchor" type="text" required>
+                              <textarea name="details" class="form__input" placeholder="details" rows="5" required></textarea>
+                              <button class="form__button" type="submit">Добавить</button>`;*/
     }
 
     _eventInit () {
