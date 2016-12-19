@@ -26,21 +26,27 @@
   _onClick (event) {
     let target = event.target;
     if (target.id === 'tab__add') this._onAddTab();
-    if (target.getAttribute('name') === 'list') {
-      this._indexDisplayTab = target.id;
-      this._renderMenu(this._indexDisplayTab);
-    };
+    if (target.getAttribute('name') === 'list') this._onPickTab(target);
   }
 
   _onAddTab () {
     let data = {};
     let title = prompt('Заголовок новой закладки');
     if (title) {
-      data.title = title;
-      data.items= [];
-      this._data.push(data);
-      this._render();
+      this._createDataTab(title);
     }
+  }
+
+  _createDataTab (title) {
+    data.title = title;
+    data.items= [];
+    this._data.push(data);
+    this._render();
+  }
+
+  _onPickTab (target) {
+    this._indexDisplayTab = +target.id;
+    this._renderMenu(this._indexDisplayTab);
   }
 
   }
