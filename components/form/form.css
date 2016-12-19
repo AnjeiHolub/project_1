@@ -1,4 +1,5 @@
 form {
+	margin-top: 10px;
 	box-sizing: border-box;
 	border: 1px solid #82a9e0;
 	padding: 10px;
@@ -19,6 +20,7 @@ input {
 	border: 1px solid #dedede;
 	outline: none;
 	box-shadow: 0px 0px 3px #ccc, 0 2px 5px #eee inset;
+<<<<<<< HEAD
 }
 
 input:focus:invalid, textarea:focus:invalid {
@@ -26,6 +28,15 @@ input:focus:invalid, textarea:focus:invalid {
 	border-color: #b03535;
 }
 
+=======
+}
+
+input:focus:invalid, textarea:focus:invalid {
+	box-shadow: inset 0 0 0.5px 0.5px #d45252, 0px 0px 3px #ccc;
+	border-color: #b03535;
+}
+
+>>>>>>> df04b42b54a8fe68e3604d53a43ae6514ce7c506
 input:required:valid, textarea:required:valid {
 	box-shadow:  inset 0 0 0.5px 0.5px #41a45d, 0px 0px 3px #ccc;
 	border-color: #41a45d;
