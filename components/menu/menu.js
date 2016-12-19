@@ -14,10 +14,7 @@
     constructor ({elem, data}) {
       this._elem = elem;
       this._data = data;
-<<<<<<< HEAD
-=======
       this._indexDisplayData = 0;
->>>>>>> df04b42b54a8fe68e3604d53a43ae6514ce7c506
       this.menuTmpl = menuTmpl;
       this.addList = this.addList.bind(this);
       this._onClick = this._onClick.bind(this);
@@ -25,25 +22,10 @@
       this._eventInit();
     }
     
-<<<<<<< HEAD
-    _render () {
-      this._elem.innerHTML = this.menuTmpl(this._data);
-      /*function renderMenuList (data) {
-        return data.items.map((item, index) => {
-          return `<li class="menu__item" data-index="${index}">
-                    <a href="${item.href}" data-action="pick">${item.anchor}</a>
-                    <details data-action="open"><summary>Описание</summary>${item.details}</details>
-                    <img class="menu__closeList" src="./components/menu/img/close.png" data-action="close"></img>
-                  </li>`;
-        }).join('');
-      };
-      this._elem.innerHTML = `<h1 class="menu__title">${this._data.title}</h1>
-                              ${renderMenuList(this._data)}`;*/
-=======
+
     _render (index) {
       if (index !== undefined) this._indexDisplayData = index;
       this._elem.innerHTML = this.menuTmpl(this._data[this._indexDisplayData]);
->>>>>>> df04b42b54a8fe68e3604d53a43ae6514ce7c506
     }
 
     _eventInit () {
@@ -62,11 +44,7 @@
     }
 
     addList (item) {
-<<<<<<< HEAD
-      this._data.items.push(item);
-=======
       this._data[this._indexDisplayData].items.push(item);
->>>>>>> df04b42b54a8fe68e3604d53a43ae6514ce7c506
       this._render();
     }
 
