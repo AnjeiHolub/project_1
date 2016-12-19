@@ -6,7 +6,9 @@
 }
 
 .menu {
-  padding: 0;
+  padding: 10px;
+  border: 1px solid #dedede;
+  margin: 0;
 }
 
 .menu__title {
