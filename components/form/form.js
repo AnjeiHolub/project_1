@@ -12,6 +12,7 @@
       this._formTmpl = formTmpl;
       this._onSubmit = this._onSubmit.bind(this);
       this.render();
+      this._form = this._elem.querySelector('form');
       this._eventInit();
     }
     
@@ -33,7 +34,7 @@
       item.href = this._getValueForm('url');
       item.anchor = this._getValueForm('anchor');
       item.details = this._getValueForm('details');
-      this._elem.reset();
+      this._form.reset();
       this._submit(item);
 
     }

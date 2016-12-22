@@ -1,12 +1,42 @@
 (function () {
   'use strict';
 
-
   let Menu = window.Menu; //import
   let Form = window.Form; //import
   let Tabs = window.Tabs; //import
 
-  window.data = [{
+  let xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('readystatechange', () => {
+    if (xhr.readyState === 4) {
+      let data = JSON.parse(xhr.responseText);
+
+      let menu = new Menu ({
+        elem: document.querySelector('.js-menu'),
+        data: data
+      });
+
+
+      let tabs = new Tabs ({
+        elem: document.querySelector('.js-tabs'),
+        data: data,
+        renderMenu (index) {
+          menu._render(index);
+        }
+      }); 
+
+
+      window.menu = menu;
+      window.tabs = tabs;    
+    }
+  })
+
+  xhr.open('GET', '../data/data.json', false);
+  xhr.send();
+
+  
+
+  /*window.data = [{
       title: 'SPA',
       items: [
         {
@@ -35,20 +65,9 @@
           details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel incidunt, praesentium architecto enim rem quisquam animi aperiam voluptates libero voluptatem quibusdam quod nam laboriosam. Ipsum cum, consequatur blanditiis at velit?'
         }
       ]
-    }]
+    }]*/
 
-  let menu = new Menu ({
-    elem: document.querySelector('.js-menu'),
-    data: window.data
-  });
-
-  let tabs = new Tabs ({
-    elem: document.querySelector('.js-tabs'),
-    data: window.data,
-    renderMenu (index) {
-      menu._render(index);
-    }
-  });
+  
 
   
 
@@ -59,8 +78,7 @@
     }
   });
 
-  window.menu = menu;
-  window.tabs = tabs;
+  
   window.form = form;
 
 })();

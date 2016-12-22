@@ -42,6 +42,7 @@
     data.items= [];
     this._data.push(data);
     this._render();
+    data = {};
   }
 
   _onPickTab (target) {
