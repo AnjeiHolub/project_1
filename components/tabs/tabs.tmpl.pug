@@ -1,13 +1,14 @@
-each item, index in items
-  case index
-    when indexDisplayTab
-      input(id=index type="radio" name="list" checked)
-      label(for=index title=item.title)=item.title
-    default
-      input(id=index type="radio" name="list")
-      label(for=index title=item.title)=item.title
-input(id="tab__add" type="radio" name="list__add")
-label(for="tab__add")
-  i(class="fa fa-plus-square" aria-hidden="true")
+div.tabs
+  each item, index in items
+    case index
+      when indexDisplayTab
+        input(id=index type="radio" name="list" checked)
+        label(for=index title=item.title)=item.title
+      default
+        input(id=index type="radio" name="list")
+        label(for=index title=item.title)=item.title
+  input(id="tab__add" type="radio" name="list__add")
+  label(for="tab__add")
+    i(class="fa fa-plus-square" aria-hidden="true")
 
 

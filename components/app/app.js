@@ -38,12 +38,12 @@
     }]
 
   let menu = new Menu ({
-    elem: document.querySelector('.menu'),
+    elem: document.querySelector('.js-menu'),
     data: window.data
   });
 
   let tabs = new Tabs ({
-    elem: document.querySelector('.tabs'),
+    elem: document.querySelector('.js-tabs'),
     data: window.data,
     renderMenu (index) {
       menu._render(index);
@@ -53,7 +53,7 @@
   
 
   let form = new Form ({
-    elem: document.querySelector('.form'),
+    elem: document.querySelector('.js-form'),
     submit (item) {
       menu.addList(item);
     }
