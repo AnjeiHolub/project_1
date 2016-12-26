@@ -30,7 +30,6 @@
   }
 
   _onAddTab () {
-    let data = {};
     let title = prompt('Заголовок новой закладки');
     if (title) {
       this._createDataTab(title);
@@ -38,6 +37,7 @@
   }
 
   _createDataTab (title) {
+    let data = {};
     data.title = title;
     data.items= [];
     this._data.push(data);
