@@ -4,16 +4,18 @@
   let tabsTmpl = window.tabsTmpl;
 
   class Tabs {
-    constructor ({elem, data, renderMenu}) {
+    constructor ({elem, renderMenu}) {
       this._elem = elem;
-      this._data = data;
       this._renderMenu = renderMenu;
       this._indexDisplayTab = 0;
       this._tabsTmpl = tabsTmpl;
       this._onClick = this._onClick.bind(this);
-      this._render();
       this._initEvent();
     }
+
+  setData (data) {
+    this._data = data;
+  }
 
   _render () {
     this._elem.innerHTML = this._tabsTmpl({items: this._data, indexDisplayTab: this._indexDisplayTab});

@@ -11,17 +11,19 @@
      * @param {Object} elem
      * @param {Array} data
      */
-    constructor ({elem, data}) {
+    constructor ({elem}) {
       this._elem = elem;
-      this._data = data;
       this._indexDisplayData = 0;
       this.menuTmpl = menuTmpl;
       this.addList = this.addList.bind(this);
       this._onClick = this._onClick.bind(this);
-      this._render();
+      /*this._render();*/
       this._eventInit();
     }
     
+    setData (data) {
+      this._data = data;
+    }
 
     _render (index) {
       if (index !== undefined) this._indexDisplayData = index;
