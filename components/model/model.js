@@ -4,7 +4,7 @@
   
 
   class Model {
-    constructor ({resources = '../data/data.json'}) {
+    constructor ({resources = 'https://components-25771.firebaseio.com/menu.json'}) {
       this._resources = resources;
       this._handlers = {};
       console.log(this._resources)
@@ -65,7 +65,6 @@
         xhr.send();
       }
       
-      xhr.send();
     }
   }
 

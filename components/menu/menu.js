@@ -11,8 +11,10 @@
      * @param {Object} elem
      * @param {Array} data
      */
-    constructor ({elem}) {
+    constructor ({elem, data = [{items: [], title: 'Пробная закладка'}]}) {
       this._elem = elem;
+      this._data = data;
+      console.log(this._data);
       this._indexDisplayData = 0;
       this.menuTmpl = menuTmpl;
       this.addList = this.addList.bind(this);
@@ -25,8 +27,13 @@
       this._data = data;
     }
 
+    getData () {
+      return this._data;
+    }
+
     _render (index) {
       if (index !== undefined) this._indexDisplayData = index;
+      console.log(this._data);
       this._elem.innerHTML = this.menuTmpl(this._data[this._indexDisplayData]);
     }
 

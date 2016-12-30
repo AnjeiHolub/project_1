@@ -30,13 +30,35 @@
 
     _onSubmit (event) {
       event.preventDefault();
-      let item = {};
-      item.href = this._getValueForm('url');
-      item.anchor = this._getValueForm('anchor');
-      item.details = this._getValueForm('details');
-      this._form.reset();
-      this._submit(item);
 
+
+      this.trigger('add', {
+        href: this._getValueForm('url'),
+        anchor: this._getValueForm('anchor'),
+        details: this._getValueForm('details')
+      });
+
+      this._form.reset();
+
+    }
+
+    on (name, callback) {
+      this._elem.addEventListener(name, callback);
+    }
+
+
+    /**
+     * Создаем и диспатчим событие
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
+     */
+    trigger (name, data) {
+      let widgetEvent = new CustomEvent(name, {
+            bubbles: true,
+            detail: data
+        });
+
+        this._elem.dispatchEvent(widgetEvent);
     }
 
   }

@@ -39,7 +39,7 @@
   })*/
 
   let menuModel = new Model ({
-    resources: '../data/data.json'
+    resources: 'https://components-25771.firebaseio.com/menu.json'
   });
 
   let menu = new Menu ({
@@ -68,7 +68,15 @@
     tabs._render();
   });
 
+  form.on('add', event => {
+    menu.addList(event.detail); // обновляю интерфейс
+
+    menuModel.setData(menu.getData()); // обновляю данные в моделе
+    menuModel.save(); // сохраняю изменения на сервере
+  });
+
   menuModel.fetch();
+
   
 
 
