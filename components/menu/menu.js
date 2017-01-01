@@ -33,7 +33,6 @@
 
     _render (index) {
       if (index !== undefined) this._indexDisplayData = index;
-      console.log(this._data);
       this._elem.innerHTML = this.menuTmpl(this._data[this._indexDisplayData]);
     }
 
@@ -53,6 +52,7 @@
     }
 
     addList (item) {
+      if (this._data[this._indexDisplayData].items === undefined) this._data[this._indexDisplayData].items = [];
       this._data[this._indexDisplayData].items.push(item);
       this._render();
     }
@@ -61,9 +61,22 @@
       this._data[this._indexDisplayData].items = this._data[this._indexDisplayData].items.filter((item, index) => {
         return target.dataset.index != index;
       });
+      this.trigger('remove', this._data);
       this._render();
     }
 
+    on (name, callback) {
+      this._elem.addEventListener(name, callback);
+    }
+
+    trigger (name, data) {
+      let widgetEvent = new CustomEvent(name, {
+            bubbles: true,
+            detail: data
+        });
+
+      this._elem.dispatchEvent(widgetEvent);
+    }
 
     _onCloseClick (event) {
       let target = event.target;
@@ -78,6 +91,7 @@
     _onPickClick (event) {
       event.preventDefault();
     }
+
   }
   
   window.Menu = Menu; //export

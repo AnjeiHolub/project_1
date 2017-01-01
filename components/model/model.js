@@ -58,7 +58,7 @@
           }
         }
       })
-
+      console.log(JSON.stringify(this._data));
       if (method === 'PUT') {
         xhr.send(JSON.stringify(this._data));
       } else {

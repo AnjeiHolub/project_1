@@ -1,11 +1,12 @@
 ul.menu
   if title
     h1.menu__title=title
-  each item, index in items
-    li.menu__item(data-index=index)
-      a(href=item.href data-action="pick")=item.anchor
-      details(data-action="open")
-        summary Описание
-        =item.details
-      img.menu__closeList(src="./components/menu/img/close.png" data-action="close")
+  if items
+    each item, index in items
+      li.menu__item(data-index=index)
+        a(href=item.href data-action="pick")=item.anchor
+        details(data-action="open")
+          summary Описание
+          =item.details
+        img.menu__closeList(src="./components/menu/img/close.png" data-action="close")
       
