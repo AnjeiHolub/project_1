@@ -1,4 +1,4 @@
-(function () {
+
   'use strict';
 
   
@@ -68,5 +68,4 @@
     }
   }
 
-  window.Model = Model; //export
-})();
+  export {Model};

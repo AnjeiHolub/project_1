@@ -1,4 +1,4 @@
-(function (){
+
   'use strict';
 
   let tabsTmpl = window.tabsTmpl;
@@ -71,5 +71,4 @@
 
   }
 
-  window.Tabs = Tabs; //export
-})();
+  export {Tabs};
